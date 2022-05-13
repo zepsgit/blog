@@ -6,8 +6,20 @@ export default function TopBar() {
     return (
         <div className="top">
             <div className="topLeft">
-                <i className="topIcon fa-brands fa-linkedin"></i>
-                <i className="topIcon fa-brands fa-github"></i>
+                <a
+                    href="https://www.linkedin.com/in/zepeng-chen-483b90218/"
+                    target='_blank'
+                    rel="noopener"
+                >
+                    <i className="topIcon fa-brands fa-linkedin"></i>
+                 </a>
+                <a
+                    href="https://github.com/zepsgit"
+                    target='_blank'
+                    rel="noopener"
+                >
+                    <i className="topIcon fa-brands fa-github"></i>
+                 </a>
             </div>
             
             <div className="topCenter">
@@ -32,11 +44,12 @@ export default function TopBar() {
                 {
                     user?(
                         <Link className="link" to='/settings'>
-                            <img 
+                            {/* <img 
                                 className="topImg"
-                                src={require('../../img/alicesprings.jpg')}
+                                src={require('../../img/church.webp')}
                                 alt='aa'
-                            />
+                            /> */}
+                            <i class="fa-solid fa-gear"></i>
                         </Link>
                     ):
                     (

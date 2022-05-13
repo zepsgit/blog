@@ -1,7 +1,7 @@
 import './settings.css'
 import Sidebar from '../../components/sidebar/Sidebar'
 
-export default function Settigns() {
+export default function Settings() {
     return (
         <div className='settings'>
             <div className='settingsWrapper'>
@@ -16,8 +16,8 @@ export default function Settigns() {
                             src='https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
                             alt=''
                         />
-                        <label htmlFor='filteInput'>
-                            <i className='settingsPPIcon far fa-user-circle'></i>{" "}
+                        <label htmlFor='fileInput'>
+                            <i className='settingsPPIcon far fa-user-circle'></i>
                         </label>
                         <input
                             id='fileInput'
