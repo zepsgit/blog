@@ -1,86 +1,87 @@
 .settings {
     display: flex;
-}
-
-.settingsWrapper {
-    flex: 6;
+  }
+  
+  .settingsWrapper {
+    flex: 9;
     padding: 20px;
-}
-
-.settingsTitle {
+  }
+  
+  .settingsTitle {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.settingsTitleUpdate {
+  }
+  
+  .settingsTitleUpdate {
     font-size: 30px;
     margin-bottom: 20px;
     color: lightcoral;
-}
-
-.settingsTitleDelete {
+  }
+  
+  .settingsTitleDelete {
     color: red;
     font-size: 12px;
     cursor: pointer;
-}
-
-.settingsForm {
+  }
+  
+  .settingsForm {
     display: flex;
     flex-direction: column;
-}
-
-.settingsPP {
+  }
+  
+  .settingsPP {
     display: flex;
-    flex-direction: row;
     align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-.settingsPP>img {
+  }
+  
+  .settingsPP > img {
     height: 70px;
     width: 70px;
     border-radius: 20px;
     object-fit: cover;
-}
-
-.settingsPPIcon {
-    box-sizing: border-box;
-    width: 30px;
-    height: 30px;
+  }
+  
+  .settingsPPIcon {
+    width: 25px;
+    height: 25px;
     padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     border-radius: 50%;
-    margin-left: 30px;
+    margin-left: 10px;
     color: white;
     background-color: lightcoral;
     cursor: pointer;
-}
-
-.settingsForm>label {
+  }
+  
+  .settingsPPButton:focus {
+    outline-style: none;
+  }
+  
+  .settingsForm > label {
     font-size: 20px;
     margin-top: 20px;
-}
-
-.settingsPPInput {
+  }
+  
+  .settingsPPInput {
     width: 30%;
-}
-
-.settingsForm>input {
+  }
+  
+  .settingsForm > input {
     color: gray;
-    margin-top: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     height: 30px;
     border: none;
-    border-bottom: 2px solid lightblue;
-}
-
-.settingsSubmitButton {
+    border-bottom: 1px solid lightgray;
+  }
+  
+  .settingsSubmitButton {
     align-self: center;
     width: 150px;
     border: none;
@@ -88,13 +89,14 @@
     color: white;
     background-color: teal;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.settingsSubmitButton:hover {
-    background-color: purple;
-}
+  }
+  
+  .settingsSubmitButton:hover {
+    background-color: rgb(1, 114, 114);
+  }
+  

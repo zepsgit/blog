@@ -8,7 +8,7 @@ import Write from "./pages/write/Write";
 import Posts from "./components/posts/Posts";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
-  const currentUser=true;
+  const currentUser=false;
   return (
    <Router>
      <TopBar/>
@@ -17,7 +17,7 @@ function App() {
        <Route path="/posts" element={<Posts/>}/>
        <Route path="/register" element={currentUser?<Home/>:<Register/>}/>
        <Route path="/login" element={currentUser?<Home/>:<Login/>}/>
-       <Route path="/post/:id" element={Single}/>
+       <Route path="/post/:id" element={<Single/>}/>
        <Route path="/write" element={currentUser?<Write/>:<Login/>}/>
        <Route path="/settings" element={currentUser?<Settings/>:<Login/>}/>
      </Routes> 
