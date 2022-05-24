@@ -1,4 +1,5 @@
 import './header.css'
+import perth from '../../img/perth.webp';
 export default function Header(){
     return (
         <div className="header">
@@ -8,8 +9,8 @@ export default function Header(){
             </div>
             <img
                 className="headerImg"
-                src={require('../../img/perth.webp')}
-                alt=""
+                src={perth}
+                alt="perth"
             />
       </div>
     )

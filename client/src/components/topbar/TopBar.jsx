@@ -1,11 +1,18 @@
-import React from "react";
-import {Link} from "react-router-dom"
-import './topbar.css'
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
+import "./topbar.css";
+
 export default function TopBar() {
-    const user=false;
-    return (
-        <div className="top">
-            <div className="topLeft">
+  const { user, dispatch } = useContext(Context);
+  const PF = "http://localhost:5000/images/"
+
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+  };
+  return (
+    <div className="top">
+      <div className="topLeft">
                 <a
                     href="https://www.linkedin.com/in/zepeng-chen-483b90218/"
                     target='_blank'
@@ -20,53 +27,50 @@ export default function TopBar() {
                 >
                     <i className="topIcon fa-brands fa-github"></i>
                  </a>
-            </div>
-            
-            <div className="topCenter">
-                <ul className="topList">
-                    <li className="topListItem">
-                        <Link className="link" to='/'>
-                            HOME
-                        </Link>
-                    </li>
-                    <li className="topListItem">ABOUT</li>
-                    <li className="topListItem">CONTACT</li>
-                    <li className="topListItem">
-                        <Link className="link" to='/write'>
-                            WRITE
-                        </Link>
-                    </li>
-                    {user && <li className="topListItem">LOGOUT</li>}
-                </ul>
-            </div>
-    
-            <div className="topRight">
-                {
-                    user?(
-                        <Link className="link" to='/settings'>
-                            {/* <img 
-                                className="topImg"
-                                src={require('../../img/church.webp')}
-                                alt='aa'
-                            /> */}
-                            <i class="fa-solid fa-gear"></i>
-                        </Link>
-                    ):
-                    (
-                        <ul className="topList">
-                            <li className="topListItem">
-                                <Link className="link" to='/login'>LOGIN</Link>
-                            </li>
-                            <li className="topListItem">
-                                <Link className="link" to='/register'>REGISTER</Link>
-                            </li>
-                        </ul>
-                    )
-                    
-                }
-                <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
-            </div>
-            
         </div>
-    );
+      <div className="topCenter">
+        <ul className="topList">
+          <li className="topListItem">
+            <Link className="link" to="/">
+              HOME
+            </Link>
+          </li>
+          <li className="topListItem">
+            <Link className="link" to="/portfolios">
+              PORTFOLIOS
+            </Link>
+          </li>
+          <li className="topListItem">
+            <Link className="link" to="/write">
+              WRITE
+            </Link>
+          </li>
+          <li className="topListItem" onClick={handleLogout}>
+            {user && "LOGOUT"}
+          </li>
+        </ul>
+      </div>
+      <div className="topRight">
+        {user ? (
+          <Link to="/settings">
+            <i class="fa-solid fa-gear"></i>
+          </Link>
+        ) : (
+          <ul className="topList">
+            <li className="topListItem">
+              <Link className="link" to="/login">
+                LOGIN
+              </Link>
+            </li>
+            <li className="topListItem">
+              <Link className="link" to="/register">
+                REGISTER
+              </Link>
+            </li>
+          </ul>
+        )}
+        <i className="topSearchIcon fas fa-search"></i>
+      </div>
+    </div>
+  );
 }

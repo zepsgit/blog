@@ -7,8 +7,10 @@ import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import Posts from "./components/posts/Posts";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {useContext} from 'react'
+import {Context} from "./context/Context"
 function App() {
-  const currentUser=false;
+  const {currentUser}=useContext(Context);
   return (
    <Router>
      <TopBar/>
