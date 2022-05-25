@@ -7,6 +7,7 @@ export default function Write() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
+  const [categories, setCat]=useState([])
   const { user } = useContext(Context);
 
   const handleSubmit = async (e) => {
@@ -15,6 +16,7 @@ export default function Write() {
       username: user.username,
       title,
       desc,
+      categories
     };
     if (file) {
       const data =new FormData();
@@ -26,6 +28,23 @@ export default function Write() {
         await axios.post("/upload", data);
       } catch (err) {}
     }
+
+    try{
+        // categories.map(async singleCat=>{
+        //   const allCategories=await axios.get("/categories")
+        //   let catArray=[]
+        //   allCategories.map(c=>{
+        //       catArray.push(c.name)
+        //   })
+        //   if (!catArray.includes(singleCat)){
+        //     await axios.post("/categories", {name:singleCat})
+        //   }
+        // })
+        
+        //use put to avoid duplicate
+        //in route folder, put method should be added to categories
+      }catch(err){}
+
     try {
       const res = await axios.post("/posts", newPost);
       window.location.replace("/post/" + res.data._id);
@@ -54,6 +73,15 @@ export default function Write() {
             autoFocus={true}
             onChange={e=>setTitle(e.target.value)}
           />
+        </div>
+        <div className="writeFormGroup">
+          <input
+              type="text"
+              placeholder="Add tags seperated by comma"
+              className="writeInput"
+              autoFocus={true}
+              onChange={e=>setCat(e.target.value.replace(/\s/g, '').split(","))}
+            />
         </div>
         <div className="writeFormGroup">
           <textarea

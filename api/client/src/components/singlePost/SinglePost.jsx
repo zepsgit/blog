@@ -11,14 +11,17 @@ export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
-  //const PF = "http://localhost:5000/images/";
-  const PF="https://zepengblog.herokuapp.com/images"
+  const PF = "http://localhost:5000/images/";
+  //const PF="https://zepengblog.herokuapp.com/images"
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
-
-  useEffect(() => {
+// console.log("user ",user)
+// console.log("loc ",location)
+// console.log("path ",path)
+// console.log("context",useContext(Context))
+useEffect(() => {
     const getPost = async () => {
       const res = await axios.get("/posts/" + path);
       setPost(res.data);
@@ -65,7 +68,7 @@ export default function SinglePost() {
         ) : (
           <h1 className="singlePostTitle">
             {title}
-            {post.username === user?.username && (
+            {post.username === user.username && (
               <div className="singlePostEdit">
                 <i
                   className="singlePostIcon far fa-edit"
@@ -82,7 +85,7 @@ export default function SinglePost() {
         <div className="singlePostInfo">
           <span className="singlePostAuthor">
             Author:
-            <Link to={`/?user=${post.username}`} className="link">
+            <Link to={`/?user=${post.username}`}>
               <b> {post.username}</b>
             </Link>
           </span>

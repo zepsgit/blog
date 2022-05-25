@@ -1,6 +1,7 @@
 import { axiosInstance } from "../../config";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Selfie from '../../img/selfie.jpg'
 import "./sidebar.css";
@@ -12,6 +13,7 @@ export default function Sidebar() {
     const getCats = async () => {
       const res = await axios.get("/categories");
       setCats(res.data);
+      //console.log(cats)
     };
     getCats();
   }, []);
@@ -43,10 +45,12 @@ export default function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
-          {cats.map((c) => (
-            <Link to={`/?cat=${c.name}`} className="link">
-            <li className="sidebarListItem">{c.name}</li>
-            </Link>
+          {cats.map(c=> (
+            <Link to={`/?cat=${c.name}`}>
+              <li key={c._id} className="sidebarListItem">
+                {c.name}
+              </li>
+            </Link> 
           ))}
         </ul>
       </div>

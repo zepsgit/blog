@@ -18,7 +18,7 @@
 
 .postCat {
   font-family: "Varela Round", sans-serif;
-  font-size: 11px;
+  font-size: 14px;
   color: #be9656;
   line-height: 20px;
   margin-top: 15px;
@@ -30,7 +30,7 @@
   font-family: "Josefin Sans", sans-serif;
   font-size: 24px;
   font-weight: 700;
-  margin-top: 15px;
+  margin-top: 20px;
   cursor: pointer;
 }
 
@@ -53,4 +53,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+}
+.postCats{
+  margin-bottom: 20px;
 }
