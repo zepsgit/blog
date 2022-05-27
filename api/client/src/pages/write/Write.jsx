@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import "./write.css";
-//import { axios } from "../../config";
+import { axiosInstance } from "../../config";
 import { Context } from "../../context/Context";
-import axios from "axios";
 export default function Write() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -25,28 +24,17 @@ export default function Write() {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("/upload", data);
+        await axiosInstance.post("/upload", data);
       } catch (err) {}
     }
-
-    try{
-        // categories.map(async singleCat=>{
-        //   const allCategories=await axios.get("/categories")
-        //   let catArray=[]
-        //   allCategories.map(c=>{
-        //       catArray.push(c.name)
-        //   })
-        //   if (!catArray.includes(singleCat)){
-        //     await axios.post("/categories", {name:singleCat})
-        //   }
-        // })
-        
-        //use put to avoid duplicate
-        //in route folder, put method should be added to categories
-      }catch(err){}
+    
+    try{          
+            categories.map(async singleCat=>{
+               await axiosInstance.put("/categories",{name:singleCat})
+          })}  catch(err){console.log(err)}
 
     try {
-      const res = await axios.post("/posts", newPost);
+      const res = await axiosInstance.post("/posts", newPost);
       window.location.replace("/post/" + res.data._id);
     } catch (err) {}
   };

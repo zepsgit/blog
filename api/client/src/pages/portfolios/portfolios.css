@@ -1,0 +1,40 @@
+.portfolios{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #00203FFF;
+}
+img{
+    height: 450px;
+    width: 600px;
+    object-fit: cover;
+}
+.item{
+    margin-bottom: 100px;
+    padding-bottom: 50px;
+    border-bottom: 1px red solid;
+}
+.cat{
+    margin-bottom: 60px;
+    text-align: center;
+    border-bottom: 5px solid blue;
+}
+.title{
+    margin-bottom: 50px;
+    font-size: 30px;
+    color: #c9a434;
+}
+.guide{
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+    border: 2px dashed #34c966;
+    padding: 10px;
+    font-size: 15px;
+}
+.subtitle{
+    color: #34c966;
+    margin-bottom: 30px;
+}

@@ -1,5 +1,4 @@
-//import { axios } from "../../config";
-import axios from "axios";
+import { axiosInstance } from "../../config";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./register.css";
@@ -14,7 +13,7 @@ export default function Register() {
     e.preventDefault();
     setError(false);
     try {
-      const res = await axios.post("/auth/register", {
+      const res = await axiosInstance.post("/auth/register", {
         username,
         email,
         password,
