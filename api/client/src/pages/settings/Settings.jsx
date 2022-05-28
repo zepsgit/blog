@@ -3,7 +3,6 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
 import { axiosInstance } from "../../config";
-
 export default function Settings() {
   const [file, setFile] = useState(null);
   const [username, setUsername] = useState("");
@@ -12,8 +11,8 @@ export default function Settings() {
   const [success, setSuccess] = useState(false);
 
   const { user, dispatch } = useContext(Context);
-  //const PF = "http://localhost:5000/images/"
-  const PF="https://zepengblog.herokuapp.com/images"
+  const debug=false
+  const PF = debug? "http://localhost:5000/images/" : "https://zepengblog.herokuapp.com/images/"
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "UPDATE_START" });

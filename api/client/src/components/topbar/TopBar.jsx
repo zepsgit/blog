@@ -21,7 +21,7 @@ export default function TopBar() {
                  </a>
         
                 <a
-                    href="https://medium.com/me/stories/public"
+                    href="https://medium.com/@zepengchen423"
                     target='_blank'
                     rel="noopener"
                 >

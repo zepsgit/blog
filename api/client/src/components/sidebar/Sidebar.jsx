@@ -7,10 +7,15 @@ import "./sidebar.css";
 
 export default function Sidebar() {
   const [cats, setCats] = useState([]);
+  // console.log(cats)
+  // console.log("----")
   useEffect(() => {
     const getCats = async () => {
       const res = await axiosInstance.get("/categories");
-      setCats(res.data)
+      const catSet=new Set()
+      res.data.map(c=>{catSet.add(c.name)})
+      //setCats(res.data)
+      setCats(Array.from(catSet))
     };
     getCats();
   }, []);
@@ -44,9 +49,9 @@ export default function Sidebar() {
         <ul className="sidebarList">
           {cats.map(c=> {
             return (
-            <Link to={`/?cat=${c.name}`}>
+            <Link to={`/?cat=${c}`}>
               <li  className="sidebarListItem">
-                {c.name}
+                {c}
               </li>
             </Link> 
             )

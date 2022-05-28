@@ -1,4 +1,3 @@
-
 import { axiosInstance } from "../../config";
 import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router";
@@ -10,15 +9,16 @@ export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
-  //const PF = "http://localhost:5000/images/";
-  const PF="https://zepengblog.herokuapp.com/images"
+  const debug=false
+  const PF = debug? "http://localhost:5000/images/" : "https://zepengblog.herokuapp.com/images/"
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
+  const [cats, setCats]=useState([])
   const [updateMode, setUpdateMode] = useState(false);
 // console.log("user ",user)
 // console.log("loc ",location)
-// console.log("path ",path)
+ //console.log("path ",path)
 // console.log("context",useContext(Context))
 useEffect(() => {
     const getPost = async () => {
@@ -26,15 +26,15 @@ useEffect(() => {
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
+      setCats(res.data.categories)
     };
     getPost();
   }, [path]);
-
   const handleDelete = async () => {
     try {
       await axiosInstance.delete(`/posts/${post._id}`, {
         data: { username: user.username },
-      });
+      }).then(cats.map(c=>{axiosInstance.delete("/categories",{name:c})}))
       window.location.replace("/");
     } catch (err) {}
   };

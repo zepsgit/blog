@@ -20,10 +20,10 @@ export default function Portfolios(){
                 <h3 className='title'>Fullstack</h3>
 
                 <div className='item'>
-                    <a href='https://github.com/zepsgit/jobboard' target="_blank">
+                    <a href='https://github.com/zepsgit/blog' target="_blank">
                         <h3 className='subtitle'>Personal Blog</h3>
                     </a>
-                    <a href='https://nljobboard.netlify.app/' target="_blank">
+                    <a href='https://zepengblog.herokuapp.com/' target="_blank">
                         <img src={blog} alt="blog"/>
                     </a>
                 </div>

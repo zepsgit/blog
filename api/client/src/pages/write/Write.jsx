@@ -30,7 +30,7 @@ export default function Write() {
     
     try{          
             categories.map(async singleCat=>{
-               await axiosInstance.put("/categories",{name:singleCat})
+               await axiosInstance.post("/categories",{name:singleCat})
           })}  catch(err){console.log(err)}
 
     try {

@@ -1,14 +1,14 @@
 const router = require('express').Router();
 const Category = require('../models/Category');
-// router.post('/', async (req, res) => {
-//     const newCat = new Category(req.body);
-//     try {
-//         const savedCat = await newCat.save();
-//         res.status(200).json(savedCat);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// })
+router.post('/', async (req, res) => {
+    const newCat = new Category(req.body);
+    try {
+        const savedCat = await newCat.save();
+        res.status(200).json(savedCat);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 router.put("/", async (req, res) => {
     const newCat = new Category(req.body);
     try {
@@ -21,10 +21,21 @@ router.put("/", async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const cats = await Category.find();
-        res.status(200).json(cats);
+        // const cats = await Category.find()
+        // const catsArray=new Set()
+        // cats.map(c=>{catsArray.add(c.name)})
+        // res.status(200).json(Array.from(catsArray));
+        const cats = await Category.find()
+        res.status(200).json(cats)
     } catch (err) {
         res.status(500).json(err);
     }
+})
+
+router.delete("/", async (req, res) => {
+    try {
+        await Category.deleteOne(req.body)
+        res.status(200).json("deleted")
+    }catch(err){}
 })
 module.exports = router;
